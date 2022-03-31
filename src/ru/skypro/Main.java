@@ -20,13 +20,11 @@ public class Main {
         int clientOSAgain = 0;
         int years = 2014;
 
-        if (clientOSAgain == 0){
-            if (years >= 2015){
-                System.out.println("Установите версию приложения для iOS по ссылке");
-            } else {
-                System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-            }
-        } else if (years >= 2015){
+        if (clientOSAgain == 0 && years >= 2015){
+            System.out.println("Установите версию приложения для iOS по ссылке");
+            } else if (clientOSAgain == 0 && years < 2015) {
+            System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+            } else if (clientOSAgain == 1 && years >= 2015) {
             System.out.println("Установите версию приложения для Android по ссылке");
         } else {
             System.out.println("Установите облегченную версию приложения для Android по ссылке");
@@ -34,9 +32,9 @@ public class Main {
 
 
         //Задание 3
-        int year = 2000;
-        boolean leapYear = year % 4 == 0 && year % 100 != 0;
-        if (leapYear || year % 400 == 0) {
+        int year = 400;
+        boolean leapYear = year % 4 == 0 && year % 100 != 0|| year % 400 == 0;
+        if (leapYear) {
             System.out.println(year + " год - високосный");
         } else {
             System.out.println(year + " год - не високосный");
